@@ -18,7 +18,7 @@ _source_if() { [[ -r "$1" ]] && source "$1"; }
 
 export USER="$(whoami)"
 export GITUSER="$USER"
-export REPOS="$HOME/Repos"
+export REPOS="$HOME/repos"
 export GHREPOS="$REPOS/github.com/$GITUSER"
 export DOTFILES="$GHREPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
@@ -37,8 +37,8 @@ export VIRTUALMACHINES="$HOME/VirtualMachines"
 export WORKSPACES="$HOME/Workspaces" # container home dirs for mounting
 export TERM=xterm-256color
 export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
-export GOPATH="/usr/local/go"
-export GOBIN="$GOPATH/bin"
+export GOPATH="/home/$USER/go"
+export GOBIN="/usr/local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
 
