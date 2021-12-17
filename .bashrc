@@ -37,8 +37,8 @@ export VIRTUALMACHINES="$HOME/VirtualMachines"
 export WORKSPACES="$HOME/Workspaces" # container home dirs for mounting
 export TERM=xterm-256color
 export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
-export GOPATH="$HOME/.local/share/go"
-export GOBIN="$HOME/.local/bin"
+export GOPATH="/usr/local/go"
+export GOBIN="$GOPATH/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
 
