@@ -12,8 +12,8 @@ receivers:
 exporters:
   prometheus:
     endpoint: "0.0.0.0:9101"
-    const_labels:
-      label1: otel-metrics-agent
+    resource_to_telemetry_conversion:
+      enabled: true
   logging:
  
 processors:
