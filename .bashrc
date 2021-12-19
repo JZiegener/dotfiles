@@ -143,6 +143,9 @@ PROMPT_COMMAND="__ps1"
 #      (use exec scripts instead, which work from vim and subprocs)
 
 alias ls='ls -h --color=auto'
+alias free='free -h'
+alias df='df -h'
+alias chmox='chmod +x'
 
 # ----------------------------- functions ----------------------------
 
