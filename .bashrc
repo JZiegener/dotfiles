@@ -83,6 +83,7 @@ pathappend \
   /snap/bin \
   /sbin \
   /bin
+  ~/repos/dotfiles/scripts
 
 # ------------------------------ cdpath ------------------------------
 
