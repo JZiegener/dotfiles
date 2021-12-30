@@ -147,6 +147,7 @@ alias ls='ls -h --color=auto'
 alias free='free -h'
 alias df='df -h'
 alias chmox='chmod +x'
+alias k='kanban'
 
 # ----------------------------- functions ----------------------------
 

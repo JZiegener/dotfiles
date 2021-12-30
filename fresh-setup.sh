@@ -1,3 +1,2 @@
 cp .bashrc ~/.bashrc
-. ~/.bashrc
-
+source ~/.bashrc
