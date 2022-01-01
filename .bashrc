@@ -38,7 +38,7 @@ export WORKSPACES="$HOME/Workspaces" # container home dirs for mounting
 export TERM=xterm-256color
 export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
 export GOPATH="/home/$USER/go"
-export GOBIN="/usr/local/bin"
+export GOBIN="/usr/local/go/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
 
@@ -82,8 +82,9 @@ pathappend \
   /usr/bin \
   /snap/bin \
   /sbin \
-  /bin
-  ~/repos/dotfiles/scripts
+  /bin \
+  ~/repos/dotfiles/scripts \
+  /usr/local/go/bin
 
 # ------------------------------ cdpath ------------------------------
 
