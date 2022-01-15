@@ -41,6 +41,8 @@ export GOPATH="/home/$USER"
 export GOBIN="/usr/local/go/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
+export EDITOR=vi
+export VISUAL=vi
 
 # ------------------------------- path -------------------------------
 pathappend() {
@@ -149,6 +151,7 @@ alias free='free -h'
 alias df='df -h'
 alias chmox='chmod +x'
 alias k='kanban'
+alias lynx='docker run -it --rm lynx '
 
 # ----------------------------- functions ----------------------------
 
