@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Set URL to search for kernal updates
+# Set URL to search for kernel updates
 
 BASE=https://kernel.ubuntu.com/~kernel-ppa/mainline/
 VERSION=v5.16
@@ -8,7 +8,7 @@ VERSION=v5.16
 URL=$BASE$VERSION/amd64/
 echo "Querying for versions" $URL
 
-#Prompt user for which version of the kernal should be installed
+#Prompt user for which version of the kernel should be installed
 
 mapfile -t VERSIONS < <(curl -sS $URL | grep -oP '(linux-header).*?(.deb)' | grep -oP '(generic).*?(amd64)' | uniq) 
 
@@ -25,21 +25,27 @@ read VERSIONNUM
 VERSIONCHOICE=${VERSIONS[$VERSIONNUM]}
 
 # download all the associated files
+echo "Downloading kernel files"
 
 mapfile -t FILES < <(curl -sS $URL | grep -oP "(linux-).*?($VERSIONCHOICE)(.deb)" | uniq)
 
 for FILE in "${FILES[@]}";
 do
-	wget $URL$FILE
+	wget -q $URL$FILE
 done
 
 # Validate the checksums
-wget $URL/CHECKSUMS
-shasum -c --ignore-missing CHECKSUMS
+wget -q $URL/CHECKSUMS
 
+if ! $(shasum -c -s --ignore-missing CHECKSUMS); 
+then
+	echo "Downloaded files don't match checksums. Exiting"
+	exit 1
+fi
 
 # Install the downloaded files
-#sudo chmod +x *.deb
-#sudo dpkg -i *.deb
 
-echo "Computer needs to be rebooted to load kernal"
+sudo chmod +x *.deb
+sudo dpkg -i *.deb
+
+echo "Reboot to update kernel"
