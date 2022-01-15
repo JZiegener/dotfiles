@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#
+
+BASE=https://kernel.ubuntu.com/~kernel-ppa/mainline/
+VERSION=v5.16
+
+URL=$BASE$VERSION/amd64/
+echo "Querying for versions" $URL
+#Get the list of releases for generic
+curl -sS $URL | grep -oP '(linux-header).*?(.deb)' | grep -oP '(generic).*?(amd64)' | uniq
+
