@@ -1,12 +1,45 @@
-#!/bin/sh
+#!/bin/bash
 
-#
+# Set URL to search for kernal updates
 
 BASE=https://kernel.ubuntu.com/~kernel-ppa/mainline/
 VERSION=v5.16
 
 URL=$BASE$VERSION/amd64/
 echo "Querying for versions" $URL
-#Get the list of releases for generic
-curl -sS $URL | grep -oP '(linux-header).*?(.deb)' | grep -oP '(generic).*?(amd64)' | uniq
 
+#Prompt user for which version of the kernal should be installed
+
+mapfile -t VERSIONS < <(curl -sS $URL | grep -oP '(linux-header).*?(.deb)' | grep -oP '(generic).*?(amd64)' | uniq) 
+
+echo "What version should be installed"
+i=0
+for ver in "${VERSIONS[@]}";
+do
+	echo $i ") " $ver
+	i=$((i+1))
+done
+
+read VERSIONNUM
+
+VERSIONCHOICE=${VERSIONS[$VERSIONNUM]}
+
+# download all the associated files
+
+mapfile -t FILES < <(curl -sS $URL | grep -oP "(linux-).*?($VERSIONCHOICE)(.deb)" | uniq)
+
+for FILE in "${FILES[@]}";
+do
+	wget $URL$FILE
+done
+
+# Validate the checksums
+wget $URL/CHECKSUMS
+shasum -c --ignore-missing CHECKSUMS
+
+
+# Install the downloaded files
+#sudo chmod +x *.deb
+#sudo dpkg -i *.deb
+
+echo "Computer needs to be rebooted to load kernal"
