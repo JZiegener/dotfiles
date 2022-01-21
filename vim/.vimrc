@@ -14,6 +14,11 @@ Plug 'fatih/vim-go'
 Plug 'preservim/nerdtree'
 call plug#end()
 
+"""""""""""""""""""""
+"      Shortcuts    "
+"""""""""""""""""""""
+nnoremap <C-t> :NERDTreeToggle<CR>
+
 """"""""""""""""""""""
 "      Settings      "
 """"""""""""""""""""""
