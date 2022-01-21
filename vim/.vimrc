@@ -11,6 +11,7 @@ endif
 
 call plug#begin()
 Plug 'fatih/vim-go'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 """"""""""""""""""""""
@@ -52,8 +53,8 @@ set lazyredraw                  " Wait to redraw
 """""""""""""""""
 
 " base default color changes (gruvbox dark friendly)
-hi StatusLine ctermfg=black ctermbg=NONE
-hi StatusLineNC ctermfg=black ctermbg=NONE
+hi StatusLine ctermfg=grey ctermbg=NONE
+hi StatusLineNC ctermfg=grey ctermbg=NONE
 hi Normal ctermbg=NONE
 hi Special ctermfg=cyan
 hi LineNr ctermfg=black ctermbg=NONE
