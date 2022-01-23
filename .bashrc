@@ -43,6 +43,7 @@ export GOPROXY=direct
 export CGO_ENABLED=0
 export EDITOR=vi
 export VISUAL=vi
+export RUSTPATH="$HOME/.cargo/env"
 
 # ------------------------------- path -------------------------------
 pathappend() {
@@ -67,7 +68,7 @@ pathprepend() {
 } && export pathprepend
 
 pathprepend \
-  /usr/local/go/bin \
+  "$GOBIN" \
   "$HOME/.local/bin" \
   "$GHREPOS/cmd-"* \
   "$SCRIPTS" 
@@ -86,7 +87,7 @@ pathappend \
   /sbin \
   /bin \
   ~/repos/dotfiles/scripts \
-  /usr/local/go/bin
+  "$RUSTPATH"
 
 # ------------------------------ cdpath ------------------------------
 
@@ -151,7 +152,6 @@ alias free='free -h'
 alias df='df -h'
 alias chmox='chmod +x'
 alias k='kanban'
-alias lynx='docker run -it --rm lynx '
 
 # ----------------------------- functions ----------------------------
 
@@ -218,7 +218,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 
 # Add an "alert" alias for long running commands.  Use like so:

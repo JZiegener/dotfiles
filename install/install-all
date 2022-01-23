@@ -1,7 +1,0 @@
-
-sudo bash ./install-docker
-sudo bash ./install-dotnet
-sudo bash ./install-go
-sudo bash ./install-otel-collector
-sudo bash ./install-spotify
-sudo bash ./install-vscode
