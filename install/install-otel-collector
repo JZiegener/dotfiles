@@ -1,3 +1,5 @@
+#!/bin/sh
+
 wget https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/download/v0.40.0/otel-contrib-collector_0.40.0_amd64.deb
 sudo dpkg -i otel-contrib-collector_0.40.0_amd64.deb
-sudo cp otel-collector-config.yml /etc/otel-contrib-collector/config.yaml
+sudo cp config/otel-collector-config.yml /etc/otel-contrib-collector/config.yaml

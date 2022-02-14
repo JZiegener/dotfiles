@@ -1,2 +1,4 @@
+#!/bin/sh
+
 sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
 sudo apt install --install-recommends wine-stable
