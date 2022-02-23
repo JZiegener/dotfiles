@@ -153,6 +153,18 @@ alias df='df -h'
 alias chmox='chmod +x'
 alias k='kanban'
 
+# ---------------------------- WSL2 Docker Setup --------------------
+
+if (( -z "${WSL_DISTRO_NAME}" )); then
+    DOCKER_DISTRO="$WSL_DISTRO_NAME"
+    DOCKER_DIR=/mnt/wsl/shared-docker
+    DOCKER_SOCK="$DOCKER_DIR/DOCKER.SOCK"
+    export DOCKER_HOST="unix://$DOCKER_SOCK"
+
+fi
+
+
+
 # ----------------------------- functions ----------------------------
 
 
