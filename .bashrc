@@ -155,10 +155,10 @@ alias k='kanban'
 
 # ---------------------------- WSL2 Docker Setup --------------------
 
-if (( -z "${WSL_DISTRO_NAME}" )); then
+if [[ ! -z "${WSL_DISTRO_NAME}" ]]; then
   export DOCKER_DISTRO=$WSL_DISTRO_NAME
   DOCKER_DIR=/mnt/wsl/shared-docker
-  DOCKER_SOCK="$DOCKER_DIR/DOCKER.SOCK"
+  DOCKER_SOCK="$DOCKER_DIR/docker.sock"
   export DOCKER_HOST="unix://$DOCKER_SOCK"
   if [ ! -S "$DOCKER_SOCK" ]; then
     mkdir -pm o=,ug=rwx "$DOCKER_DIR"
