@@ -152,7 +152,7 @@ alias free='free -h'
 alias df='df -h'
 alias chmox='chmod +x'
 alias k='kanban'
-alias code='codium'
+alias code='flatpak run com.vscodium.codium'
 
 # ---------------------------- WSL2 Docker Setup --------------------
 
