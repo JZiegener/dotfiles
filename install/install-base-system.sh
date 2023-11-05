@@ -34,4 +34,6 @@ sudo cp ~/repos/dotfiles/install/config/firefox-policies.json /etc/firefox/polic
 
 git config --global user.email "JZiegener@gmail.com"
 git config --global user.name "Jeff Ziegener"
-config --global core.editor "vim"
+git config --global core.editor "vim"
+
+flatpak install flathub discord
