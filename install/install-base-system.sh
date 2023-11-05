@@ -45,6 +45,10 @@ sudo apt-get install ansible
 #Other repos
 #VS Codium
 flatpak install flathub vscodium -y
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension EditorConfig.EditorConfig
+code --install-extension golang.go
+code --install-extension esbenp.prettier-vscode
 #Spotify
 flatpak install flathub spotify -y
 
