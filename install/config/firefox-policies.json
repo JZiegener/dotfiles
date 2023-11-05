@@ -1,0 +1,23 @@
+{
+    "policies": {
+      "Extensions": {
+        "Install": [
+          "https://addons.mozilla.org/firefox/downloads/file/3551054/ublock_origin-latest.xpi",
+          "https://addons.mozilla.org/firefox/downloads/file/4175386/darkreader-4.9.67.xpi"
+        ]
+      },
+      "ExtensionUpdate": true,
+      "DisableTelemetry": true,
+      "DisableFirefoxStudies": true,
+      "EnableTrackingProtection": {
+        "Value": true,
+        "Locked": false,
+        "Cryptomining": true,
+        "Fingerprinting": true,
+        "EmailTracking": true,
+        "Exceptions": []
+      }
+    }
+  }
+  
+  

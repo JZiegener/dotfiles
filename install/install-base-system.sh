@@ -20,4 +20,7 @@ curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update && sudo apt-get install spotify-client
 sudo apt-get install tmux
-cp /tmux/tmux.conf ~
+cp ~/repos/dotfiles/tmux/tmux.conf ~
+flatpack install firefox
+sudo mkdir -p /etc/firefox/policies
+sudo cp ~/repos/dotfiles/install/config/firefox-policies.json /etc/firefox/policies/policies.json
