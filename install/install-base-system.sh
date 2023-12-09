@@ -9,6 +9,15 @@ then
 	sudo apt-get install nvidia-driver
 fi
 
+if [-n lspci | grep "VGA compatible controller: Advanced Micro Devices"] &&
+   [-z echo /etc/apt/sources | grep sid ]
+then
+	sudo "deb http://deb.debian.org/debian/ sid main non-free non-free-firmware" >> /etc/apt/sources
+	sudo "deb-src http://deb.debian.org/debian/ sid main non-free non-free-firmware" >> /etc/apt/sources
+	sudo cp config/amd-drivers-pin /etc/apt/preferences.d/amd-drivers-pin
+	sudo apt install firmware-amd-graphics
+fi
+
 sudo apt-get install nfs-common
 sudo apt-get install lm-sensors
 sudo apt-get install htop
@@ -42,9 +51,3 @@ git config --global core.editor "vim"
 
 flatpak install flathub discord
 #add sid repo
-if [-z echo /etc/apt/sources | grep sid ]
-then
-	sudo "deb http://deb.debian.org/debian/ sid main non-free non-free-firmware" >> /etc/apt/sources
-	sudo "deb-src http://deb.debian.org/debian/ sid main non-free non-free-firmware" >> /etc/apt/sources
-	sudo cp config/amd-drivers-pin /etc/apt/preferences.d/amd-drivers-pin
-fi
