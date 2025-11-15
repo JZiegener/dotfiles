@@ -1,12 +1,64 @@
 #!/bin/sh
 
-sudo apt-get install git -y
-mkdir ~/repos
-cd repos 
-git clone https://github.com/JZiegener/dotfiles.git
-cd dotfiles
-sudo ./install/install-base-system.sh
+# Function to handle the user choice and call appropriate scripts
+initialize_system() {
+    clear
+    echo "Select the type of system you want to initialize:"
+    echo "1. User Session"
+    echo "2. Virtual Machine"
+    echo "3. Metal - CLI Only"
+    echo "4. Metal - Desktop"
+    echo "5. Exit"
+    read -p "Enter your choice [1-5]: " choice
 
-cp .bashrc ~/.bashrc
-source ~/.bashrc
+    case $choice in
+        1)
+            echo "Initializing User Session..."
+            wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-user-session.sh | sh
+            
+            echo "Install Complete."
+            exit 0
+            ;;
+        2)
+            echo "Initializing Virtual Machine..."
+            wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-user-session.sh | sh
+            wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-vm-console-install.sh | sh
+            
+            echo "Install Complete."
+            exit 0
+            ;;
+        3)
+            echo "Initializing Metal - CLI Only..."
+            
+            wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-user-session.sh | sh
+            wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-vm-console-install.sh | sh
+            ~/repos/dotfiles/fresh-metal-console.sh
 
+            echo "Install Complete."
+            exit 0
+            ;;
+        4)
+            echo "Initializing Metal - Desktop..."
+            
+            wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-user-session.sh | sh
+            wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-vm-console-install.sh | sh
+            ~/repos/dotfiles/fresh-metal-console.sh
+            ~/repos/dotfiles/fresh-metal-desktop.sh
+
+            echo "Install Complete."
+            exit 0
+            ;;
+        5)
+            echo "Exiting script. Goodbye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid option! Please select a valid option [1-5]."
+            ;;
+    esac
+}
+
+# Main loop to continuously show the menu until the user decides to exit
+while true; do
+    initialize_system
+done
