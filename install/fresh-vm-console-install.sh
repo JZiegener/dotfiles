@@ -6,6 +6,8 @@ git config --global user.email "JZiegener@gmail.com"
 git config --global user.name "Jeff Ziegener"
 git config --global core.editor "vim"
 
+#ssh-keygen -t ed25519 -C "JZiegener@gmail.com" -f ~/.ssh/id_ed25519
+
 mkdir ~/repos
 cd repos 
 git clone https://github.com/JZiegener/dotfiles.git

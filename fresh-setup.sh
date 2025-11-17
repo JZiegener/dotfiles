@@ -32,7 +32,7 @@ initialize_system() {
             
             wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-user-session.sh | sh
             wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-vm-console-install.sh | sh
-            ~/repos/dotfiles/fresh-metal-console.sh
+            ~/repos/dotfiles/install/fresh-metal-console.sh
 
             echo "Install Complete."
             exit 0
@@ -42,8 +42,8 @@ initialize_system() {
             
             wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-user-session.sh | sh
             wget https://raw.githubusercontent.com/JZiegener/dotfiles/refs/heads/main/install/fresh-vm-console-install.sh | sh
-            ~/repos/dotfiles/fresh-metal-console.sh
-            ~/repos/dotfiles/fresh-metal-desktop.sh
+            ~/repos/dotfiles/install/fresh-metal-console-install.sh
+            ~/repos/dotfiles/install/fresh-metal-desktop-install.sh
 
             echo "Install Complete."
             exit 0
