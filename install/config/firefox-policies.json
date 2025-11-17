@@ -27,6 +27,17 @@
         "Value": true,
         "Status": "locked"
       }
+    },
+     "PictureInPicture": {
+      "Enabled": false,
+      "Locked": true 
+    },
+    "GenerativeAI": {
+      "Enabled": false,
+      "Chatbot": false,
+      "LinkPreviews":  false,
+      "TabGroups": false,
+      "Locked": false
     }
   }
 }
