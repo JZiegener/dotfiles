@@ -9,7 +9,11 @@ initialize_system() {
     echo "3. Metal - CLI Only"
     echo "4. Metal - Desktop"
     echo "5. Exit"
-    read -p "Enter your choice [1-5]: " choice
+    choice=$1
+    if [ -n "$1" ]; then
+        read -p "Enter your choice [1-5]: " choice
+    fi
+
 
     case $choice in
         1)
