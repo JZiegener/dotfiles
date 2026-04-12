@@ -70,8 +70,9 @@ pathprepend() {
 pathprepend \
   "$GOBIN" \
   "$HOME/.local/bin" \
+  "$HOME/.opencode/bin" \
   "$GHREPOS/cmd-"* \
-  "$SCRIPTS" 
+  "$SCRIPTS"
 
 
 pathappend \
