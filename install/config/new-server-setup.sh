@@ -1,5 +1,3 @@
-#!/bin/sh
-
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------------
 # create-user.sh — Interactive helper to create a non-root sudo user,
@@ -19,48 +17,13 @@ set -euo pipefail
 
 apt-get update -qq
 
-# ----------------------------------------------------------------------
-#  1. Ask for a valid *new* username
-# ----------------------------------------------------------------------
-while true; do
-    read -rp "Enter a username you want to login as: " username
-    # Username rules: must start with a lowercase letter, followed by
-    # lowercase letters, digits, hyphens or underscores.
-    if [[ "$username" =~ ^[a-z][-a-z0-9_]*$ ]]; then
-        break
-    else
-        echo "⚠️  Invalid username. Use lowercase letters, digits, underscores; must start with a letter."
-    fi
-done
 
-# ----------------------------------------------------------------------
-#  2. Read and confirm the password for the new user
-# ----------------------------------------------------------------------
-while true; do
-    # -s  : silent (no echo)
-    read -rsp "Enter a password for that user: " password1; echo
-    read -rsp "Confirm password: "               password2; echo
-    if [[ "$password1" == "$password2" && -n "$password1" ]]; then
-        break
-    else
-        echo "⚠️  Passwords do not match. Please try again."
-    fi
-done
-
-read -rp "Enter the domain name you want to use: (you should already own it): " domain; echo
-
-# ----------------------------------------------------------------------
-#  3. Abort early if the user already exists
-# ----------------------------------------------------------------------
-if id "$username" &>/dev/null; then
-    echo "❌ User $username already exists." >&2
-    exit 1
-fi
+ssh-copy-id root@
 
 # ----------------------------------------------------------------------
 #  4. Create the user with a bash login shell and add to sudoers
 # ----------------------------------------------------------------------
-
+default_shell="/bin/bash"
 useradd --create-home --shell "$default_shell" "$username"
 
 echo "${username}:${password1}" | chpasswd
@@ -76,14 +39,11 @@ cp ~/.bashrc /home/"$username"/.bashrc
 mkdir -p /home/"$username"/.ssh
 chmod 700 /home/"$username"/.ssh
 
-# Copy root’s authorized_keys so the new user can SSH using the same key(s)
-cp /root/.ssh/authorized_keys /home/"$username"/.ssh/authorized_keys
-
 chmod 600 /home/"$username"/.ssh/authorized_keys
 chown -R "$username":"$username" /home/"$username"/.ssh
 
 # ----------------------------------------------------------------------
-#  7. Harden SSH daemon configuration
+#  6. Harden SSH daemon configuration
 # ----------------------------------------------------------------------
 SSHCFG='/etc/ssh/sshd_config'                 # main sshd config
 CLOUDINIT='/etc/ssh/sshd_config.d/50-cloud-init.conf' # cloud-init drop-in

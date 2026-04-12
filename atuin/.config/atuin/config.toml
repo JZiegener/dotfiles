@@ -1,0 +1,32 @@
+## Atuin configuration
+## Full reference: https://docs.atuin.sh/configuration/config/
+
+# Compact UI style
+style = "compact"
+
+# Press enter to immediately execute the selected command
+enter_accept = true
+
+# Fuzzy search by default
+search_mode = "fuzzy"
+
+# Filter by current directory for up-arrow
+filter_mode_shell_up_key_binding = "directory"
+
+# Auto-filter secrets (AWS keys, tokens, etc.)
+secrets_filter = true
+
+# Workspace-aware filtering (filter by git repo)
+workspaces = true
+
+[sync]
+records = true
+
+[ai]
+enabled = false
+endpoint = "http://10.10.10.100:8080/v1"
+bind_ai = ""
+
+[ai.opening]
+send_cwd = true
+send_last_command = true

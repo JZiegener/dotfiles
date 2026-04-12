@@ -1,0 +1,10 @@
+# Yazi keymap — uses vim-style navigation by default
+# Full reference: https://yazi-rs.github.io/docs/configuration/keymap
+
+[manager]
+prepend_keymap = [
+  # Quick open in editor
+  { on = ["e"], run = "open", desc = "Open file" },
+  # Show hidden files toggle
+  { on = ["."], run = "hidden toggle", desc = "Toggle hidden files" },
+]

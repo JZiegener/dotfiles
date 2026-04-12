@@ -1,0 +1,3 @@
+--target=/home/birch
+--ignore=\.stowrc
+--ignore=\.DS_Store

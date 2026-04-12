@@ -1,0 +1,18 @@
+# Sesh configuration
+# See: https://github.com/joshmedeski/sesh
+
+# Default session when running sesh connect with no args
+[default_session]
+startup_command = "nvim"
+
+# Directories to show in sesh list
+# These show up alongside tmux sessions and zoxide results
+[[session]]
+name = "dotfiles"
+path = "~/repos/dotfiles"
+
+# Add more project sessions as needed:
+# [[session]]
+# name = "myproject"
+# path = "~/repos/myproject"
+# startup_command = "nvim"

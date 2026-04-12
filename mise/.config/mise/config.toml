@@ -1,0 +1,11 @@
+# mise global configuration
+# Per-project versions: create .mise.toml in project root
+# Full reference: https://mise.jdx.dev/configuration.html
+
+[tools]
+go = "latest"
+# node = "lts"
+# python = "latest"
+
+[settings]
+experimental = false

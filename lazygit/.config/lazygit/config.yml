@@ -1,0 +1,18 @@
+# lazygit configuration
+# Full reference: https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+gui:
+  showCommandLog: false
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - magenta
+      - bold
+    inactiveBorderColor:
+      - white
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+  autoFetch: true
+os:
+  editPreset: "nvim"

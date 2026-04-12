@@ -10,7 +10,7 @@ initialize_system() {
     echo "4. Metal - Desktop"
     echo "5. Exit"
     choice=$1
-    if [ -n "$1" ]; then
+    if [ -n "$choice" ]; then
         read -p "Enter your choice [1-5]: " choice
     fi
 
