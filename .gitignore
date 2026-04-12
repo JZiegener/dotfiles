@@ -2,3 +2,5 @@
 *.deb
 *.swp
 CHECKSUMS=
+.continue/
+tmux/.config/tmux/plugins/

@@ -200,5 +200,6 @@ _have starship && eval "$(starship init bash)"
 _have zoxide && eval "$(zoxide init bash)"
 
 # Atuin (shell history with SQLite, use: Ctrl-R)
-_source_if "$HOME/.atuin/bin/env"
-_have atuin && eval "$(atuin init bash)"
+# Disabled until ready — uncomment to enable
+# _source_if "$HOME/.atuin/bin/env"
+# _have atuin && eval "$(atuin init bash)"
