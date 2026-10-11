@@ -53,6 +53,15 @@ else
   echo "Atuin already installed: $(atuin --version)"
 fi
 
+# bash-preexec: required for atuin to record history in bash
+if [ ! -f "$HOME/.bash-preexec.sh" ]; then
+  echo "Installing bash-preexec..."
+  curl -sSfL https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh \
+    -o "$HOME/.bash-preexec.sh"
+else
+  echo "bash-preexec already installed"
+fi
+
 # ── TPM (tmux plugin manager) ──────────────────────────
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   echo "Installing TPM..."

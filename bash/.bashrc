@@ -203,7 +203,8 @@ _have zoxide && eval "$(zoxide init bash)"
 # Loaded before atuin so atuin owns Ctrl-R
 _have fzf && eval "$(fzf --bash)"
 
-# Atuin (shell history with SQLite, use: Ctrl-R)
-# Disabled until ready — uncomment to enable
-# _source_if "$HOME/.atuin/bin/env"
-# _have atuin && eval "$(atuin init bash)"
+# Atuin (shell history with SQLite, use: Ctrl-R, Up for this directory)
+# Needs bash-preexec in bash to record commands
+_source_if "$HOME/.atuin/bin/env"
+_source_if "$HOME/.bash-preexec.sh"
+_have atuin && eval "$(atuin init bash)"
