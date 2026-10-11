@@ -2,8 +2,8 @@
 # Evaluation shell — shares starship, zoxide, atuin with bash
 
 # ── Environment ──────────────────────────────────────────
-set -gx EDITOR vi
-set -gx VISUAL vi
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 
 # ── Aliases ──────────────────────────────────────────────
 alias ls='ls -h --color=auto'

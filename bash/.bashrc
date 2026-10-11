@@ -40,8 +40,8 @@ export GOPATH="/home/$USER"
 export GOBIN="/usr/local/go/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
-export EDITOR=vi
-export VISUAL=vi
+export EDITOR=nvim
+export VISUAL=nvim
 export RUSTPATH="$HOME/.cargo/env"
 
 # ------------------------------- path -------------------------------
