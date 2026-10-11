@@ -199,6 +199,10 @@ _have starship && eval "$(starship init bash)"
 # Zoxide (frecency-based cd, use: z <partial-dir>)
 _have zoxide && eval "$(zoxide init bash)"
 
+# fzf (Ctrl-T: insert path, Alt-C: cd into dir, **<Tab>: fuzzy completion)
+# Loaded before atuin so atuin owns Ctrl-R
+_have fzf && eval "$(fzf --bash)"
+
 # Atuin (shell history with SQLite, use: Ctrl-R)
 # Disabled until ready — uncomment to enable
 # _source_if "$HOME/.atuin/bin/env"
