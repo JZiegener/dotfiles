@@ -4,7 +4,6 @@
 # ── Environment ──────────────────────────────────────────
 set -gx EDITOR vi
 set -gx VISUAL vi
-set -gx TERM xterm-256color
 
 # ── Aliases ──────────────────────────────────────────────
 alias ls='ls -h --color=auto'

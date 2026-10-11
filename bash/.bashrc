@@ -35,7 +35,6 @@ export VIDEOS="$HOME/Videos"
 export PDFS="$DOCUMENTS/PDFS"
 export VIRTUALMACHINES="$HOME/VirtualMachines"
 export WORKSPACES="$HOME/Workspaces" # container home dirs for mounting
-export TERM=xterm-256color
 export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
 export GOPATH="/home/$USER"
 export GOBIN="/usr/local/go/bin"

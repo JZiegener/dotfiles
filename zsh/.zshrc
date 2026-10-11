@@ -31,7 +31,6 @@ setopt APPEND_HISTORY
 # ── Environment ──────────────────────────────────────────
 export EDITOR=vi
 export VISUAL=vi
-export TERM=xterm-256color
 
 # ── Aliases ──────────────────────────────────────────────
 alias ls='ls -h --color=auto'
