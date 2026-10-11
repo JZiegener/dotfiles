@@ -35,14 +35,13 @@ export VIDEOS="$HOME/Videos"
 export PDFS="$DOCUMENTS/PDFS"
 export VIRTUALMACHINES="$HOME/VirtualMachines"
 export WORKSPACES="$HOME/Workspaces" # container home dirs for mounting
-export TERM=xterm-256color
 export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
 export GOPATH="/home/$USER"
 export GOBIN="/usr/local/go/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
-export EDITOR=vi
-export VISUAL=vi
+export EDITOR=nvim
+export VISUAL=nvim
 export RUSTPATH="$HOME/.cargo/env"
 
 # ------------------------------- path -------------------------------
@@ -200,7 +199,12 @@ _have starship && eval "$(starship init bash)"
 # Zoxide (frecency-based cd, use: z <partial-dir>)
 _have zoxide && eval "$(zoxide init bash)"
 
-# Atuin (shell history with SQLite, use: Ctrl-R)
-# Disabled until ready — uncomment to enable
-# _source_if "$HOME/.atuin/bin/env"
-# _have atuin && eval "$(atuin init bash)"
+# fzf (Ctrl-T: insert path, Alt-C: cd into dir, **<Tab>: fuzzy completion)
+# Loaded before atuin so atuin owns Ctrl-R
+_have fzf && eval "$(fzf --bash)"
+
+# Atuin (shell history with SQLite, use: Ctrl-R, Up for this directory)
+# Needs bash-preexec in bash to record commands
+_source_if "$HOME/.atuin/bin/env"
+_source_if "$HOME/.bash-preexec.sh"
+_have atuin && eval "$(atuin init bash)"

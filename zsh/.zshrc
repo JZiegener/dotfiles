@@ -29,9 +29,8 @@ setopt SHARE_HISTORY
 setopt APPEND_HISTORY
 
 # ── Environment ──────────────────────────────────────────
-export EDITOR=vi
-export VISUAL=vi
-export TERM=xterm-256color
+export EDITOR=nvim
+export VISUAL=nvim
 
 # ── Aliases ──────────────────────────────────────────────
 alias ls='ls -h --color=auto'
